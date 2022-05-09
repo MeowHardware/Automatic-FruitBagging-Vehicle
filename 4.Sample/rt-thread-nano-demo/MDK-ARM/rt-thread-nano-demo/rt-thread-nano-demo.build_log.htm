@@ -1,0 +1,74 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: d df, f, LIC=UJWP0-BK2YB-HL5CL-0XW6U-JFC8Q-JSI00
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.36.0.0
+Toolchain Path:  E:\Development\Eclipse\KeilArm\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      CMSIS_AGDI.dll V1.33.0.0
+Dialog DLL:      TCM.DLL V1.53.0.0
+ 
+<h2>Project:</h2>
+c:\Users\ijink\OneDrive\fruit\4.Sample\rt-thread-nano-demo\MDK-ARM\rt-thread-nano-demo.uvprojx
+Project File Date:  04/09/2022
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'E:\Development\Eclipse\KeilArm\ARM\ARMCC\Bin'
+Build target 'rt-thread-nano-demo'
+Note: source file '..\Drivers\oled\oled.c' - object file renamed from 'rt-thread-nano-demo\oled.o' to 'rt-thread-nano-demo\oled_1.o'.
+Note: source file '..\Drivers\pca9685\pca9685.c' - object file renamed from 'rt-thread-nano-demo\pca9685.o' to 'rt-thread-nano-demo\pca9685_1.o'.
+compiling main.c...
+..\Core\Src\main.c(116): warning:  #177-D: variable "motor_thread"  was declared but never referenced
+    static struct rt_thread motor_thread;
+..\Core\Src\main.c(117): warning:  #177-D: variable "motor_thread_stack"  was declared but never referenced
+    static char motor_thread_stack[512] = {0};
+..\Core\Src\main.c(118): warning:  #177-D: variable "oled_thread"  was declared but never referenced
+    static struct rt_thread oled_thread;
+..\Core\Src\main.c(119): warning:  #177-D: variable "oled_thread_stack"  was declared but never referenced
+    static char oled_thread_stack[1024] = {0};
+..\Core\Src\main.c(474): warning:  #177-D: function "MX_USART1_UART_Init"  was declared but never referenced
+  static void MX_USART1_UART_Init(void)
+..\Core\Src\main.c: 5 warnings, 0 errors
+linking...
+Program Size: Code=16954 RO-data=1390 RW-data=152 ZI-data=5744  
+FromELF: creating hex file...
+"rt-thread-nano-demo\rt-thread-nano-demo.axf" - 0 Error(s), 5 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.8.0.pack
+                ARM.CMSIS.5.8.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.5.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.16.0.pack
+                Keil.STM32F4xx_DFP.2.16.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_rt-thread-nano-demo
+  E:\Development\Shared\KeilPack\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  E:\Development\Shared\KeilPack\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.5.0
+      Include file:  CMSIS\Core\Include\tz_context.h
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>

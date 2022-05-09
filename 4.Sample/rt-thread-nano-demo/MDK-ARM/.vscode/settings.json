@@ -1,0 +1,15 @@
+{
+    "RTT_Studio.Build.Parallel_Jobs": "12",
+    "files.associations": {
+        "main.h": "c",
+        "finsh_config.h": "c",
+        "RTHW.H": "cpp",
+        "rtthread.h": "c",
+        "board.h": "c",
+        "oled.h": "c",
+        "stm32f4xx_hal.h": "c",
+        "myoled.h": "c",
+        "motor.h": "c",
+        "pca9685.h": "c"
+    }
+}

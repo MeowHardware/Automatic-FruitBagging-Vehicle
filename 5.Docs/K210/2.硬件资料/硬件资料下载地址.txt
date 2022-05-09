@@ -1,0 +1,6 @@
+Maix Bit硬件资料下载地址：
+https://cn.dl.sipeed.com/MAIX/HDK/Maix-Bit
+
+
+Maix Bit串口驱动下载地址：
+https://cn.dl.sipeed.com/MAIX/tools/ftdi_vcp_driver

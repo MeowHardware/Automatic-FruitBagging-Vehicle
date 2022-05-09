@@ -1,0 +1,25 @@
+--cpu Cortex-M3
+"c8\startup_stm32f103xb.o"
+"c8\pca.o"
+"c8\main.o"
+"c8\stm32f1xx_it.o"
+"c8\stm32f1xx_hal_msp.o"
+"c8\stm32f1xx_hal_gpio_ex.o"
+"c8\stm32f1xx_hal_i2c.o"
+"c8\stm32f1xx_hal.o"
+"c8\stm32f1xx_hal_rcc.o"
+"c8\stm32f1xx_hal_rcc_ex.o"
+"c8\stm32f1xx_hal_gpio.o"
+"c8\stm32f1xx_hal_dma.o"
+"c8\stm32f1xx_hal_cortex.o"
+"c8\stm32f1xx_hal_pwr.o"
+"c8\stm32f1xx_hal_flash.o"
+"c8\stm32f1xx_hal_flash_ex.o"
+"c8\stm32f1xx_hal_exti.o"
+"c8\stm32f1xx_hal_tim.o"
+"c8\stm32f1xx_hal_tim_ex.o"
+"c8\system_stm32f1xx.o"
+--strict --scatter "c8\c8.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "c8.map" -o c8\c8.axf
