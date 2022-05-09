@@ -3,7 +3,7 @@
 #### 介绍
 水果操作
 这是水果操作的代码库
-
+[测试模型1说明](https://github.com/KJook/FruitAuto/blob/main/5.Docs/README.md)
 ### 更详细的介绍
 ## 1.Hardware
 这里存放PCB电路设计图相关文件
