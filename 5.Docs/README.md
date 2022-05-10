@@ -62,3 +62,121 @@ $$ R_{13} = \frac {R_{17}} {\frac{V_{out}}{0.6} - 1}$$
 ![底面](https://cdn.jsdelivr.net/gh/kjook/images@main/img/vscode/底面-2022-05-10-15-13-36.png)
 
 以上为PCB布局图，可以看出PCB的布局虽然随意，但还是有奥妙所在。PCB为4层板，叠层顺序为TOP-GND-POWER-BOTTOM。表层铜厚1oz，内层铜厚0.5oz，板厚1.6mm。设计最大输入功率72W，板耗<2W。电机接头采用两个KF2EDG 3.08mm拔插式接线端子，12V供电采用一个KF2EDG 5.08mm拔插式接线端子。串口以及烧录接口使用MX1.25mm卧式针座连接器。拔插式设计，作为模型机方便利于调试。
+
+
+# 算法
+>算法是实现应用的灵魂
+## 1.舵机相关算法以及机械臂正逆坐标变换
+### 1.1. 舵机PD运动缓冲算法
+在该应用环境中，舵机的运动具有定角度特点。传统的舵机控制算法只求角度，但是忽略了速度和加速度的影响，导致舵机突然启动或者突然暂停，收到惯性的印象，内部的减速组受瞬力过大，缓冲时间果断，导致经常有舵机出现断齿的现象，这里引入PD算法，即P（比例），D（微分），微分环节参数设置得当的时候，可以提高舵机运行的动态性能指标，使超调减小，稳定性增加，动态误差减小。
+$$ pwm=K_p*e(k)+K_i*\sum e(k)+K_d[e(k)-e(k-1)] $$
+$e(k)代表本次偏差$
+
+$e(k-1)代表上一次的偏差$
+
+$\sum e(k)代表 e(k)以及之前的偏差的累积和;其中 k 为 1,2,...,k;$
+
+$pwm 代表输出$
+```
+/*函数功能：位置式PD控制器
+入口参数：位置信息，目标位置
+返回值：控制量
+*/
+float Position_PID1 (float Encoder,float Target)
+{
+static float Bias,Pwm,Integral_bias,Last_Bias;
+Bias=Target-Encoder; //计算偏差
+Integral_bias+=Bias;//求出偏差的积分
+Pwm=Position_KP*Bias/100+Position_KI*Integral_bias/100+Position_KD*(Bia
+s-Last_Bias)/100; //位置式 PID 控制器
+Last_Bias=Bias; //保存上一次偏差
+return Pwm; //控制量输出
+}
+```
+
+### 1.2. 机械臂的正运动学DH模型以及空间坐标变换
+DH模型介绍：Denavit-Hartenberg(D-H)模型表示了对机器人连杆和关节进行建模的一种非常简单的方法，可用于任何机器人构型，也可用于表示在任何坐标中的变换。1955 年，Denavit 和 Hartenberg 在“ASME Journal of Applied Mechanics”发表了一篇论文，后来利用这篇论文来对机器人进行表示和建模，并导出了它们的运动方程，这已成为表示机器人和对机器人运动进行建模的标准方法。DH 模型通过限制原点位置和 X 轴的方向，人为减少了两个自由度，因此它只需要用四个参数即可表达关节之间原本是六自由度的坐标变换。DH 选的四个参数都有常明确的物理含义：
+
+`link length`（连杆长度）：两个关节的轴（旋转关节的旋转轴，平移关节的平移轴）之间的公共法线长度。
+
+`link twist`（连杆扭转）：一个关节的轴相对于另一个关节的轴绕它们的公共法线旋转的角度。
+
+`link offset`（连杆偏移）：一个关节与下一个关节的公共法线和它与上一个关节的公共法线沿这个关节轴的距离。
+
+`joint angle`（关节转角）：一个关节与下一个关节的公共法线和它与上一个关节的公共法线绕这个关节轴的转角。
+
+得到机械臂的DH参数
+|$i$|$\alpha_{i-1}$|$a_{i-1}$|$d_i$|$\theta_i$|
+|:-:|:-:|:-:|:-:|:-:|
+1|-90°|0|d|0
+2|90°|0|0|1
+3|0|$l_0$|0|2
+4|0| $l_1$|0|3
+5|0|$l_2$|0|0
+
+根据以下转换公式：
+
+$$ _i^{i-1} T=\left[ \begin{matrix}
+   cos \theta _i & -sin \theta _i & 0 & a_{i-1} \\
+   sin \theta _i cos \alpha _{i-1} & cos \theta _i cos \alpha _{i-1} & -sin \alpha _{i-1} & -sin \alpha _{i-1}d_i\\
+   sin \theta _i sin \alpha _{i-1} & cos \theta _i sin \alpha _{i-1} & cos \alpha _{i-1} & cos \alpha _{i-1}d_i\\
+   0 & 0 & 0 & 1
+\end{matrix} \right] $$
+
+把 DH 表带入转换公式，得到两个相邻关节之间的 T 矩阵
+
+$$ _1^0 T=\left[ \begin{matrix}
+   cos \theta _0 & -sin \theta _0 & 0 & 0 \\
+   0 & 0 & 1 & d\\
+   -sin \theta _0 & cos \theta _0 & 0 & 0\\
+   0 & 0 & 0 & 1
+\end{matrix} \right] $$
+
+$$ _2^1 T=\left[ \begin{matrix}
+   cos \theta _1 & -sin \theta _1 & 0 & 0 \\
+   0 & 0 & -1 & 0\\
+   sin \theta _1 & cos \theta _1 & 0 & 0\\
+   0 & 0 & 0 & 1
+\end{matrix} \right] $$
+
+$$ _3^2 T=\left[ \begin{matrix}
+   cos \theta _2 & -sin \theta _2 & 0 & l_0 \\
+   sin \theta _2 & cos \theta _2 & 0 & 0\\
+   0 & 0 & 1 & 0\\
+   0 & 0 & 0 & 1
+\end{matrix} \right] $$
+
+$$ _4^3 T=\left[ \begin{matrix}
+   cos \theta _3 & -sin \theta _3 & 0 & l_1 \\
+   sin \theta _3 & cos \theta _3 & 0 & 0\\
+   0 & 0 & 1 & 0\\
+   0 & 0 & 0 & 1
+\end{matrix} \right] $$
+
+$$ _5^4 T=\left[ \begin{matrix}
+   1 & 0 & 0 & l_2 \\
+   0 & 1 & 0 & 0\\
+   0 & 0 & 1 & 0\\
+   0 & 0 & 0 & 1
+\end{matrix} \right] $$
+
+得到旋转矩阵后，根据下面的公式得到末端执行器姿态：
+$$\left[\begin{matrix} 
+x\\
+y\\
+z\\
+1
+\end{matrix}\right]
+=
+_1^0T
+_2^1T
+_3^2T
+_4^3T
+_5^4T
+\left[\begin{matrix} 
+0\\
+0\\
+0\\
+1
+\end{matrix}\right]
+$$
