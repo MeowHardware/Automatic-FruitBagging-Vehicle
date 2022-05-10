@@ -135,7 +135,7 @@ static float Bias,Pwm,Integral_bias,Last_Bias;
 Bias=Target-Encoder; //计算偏差
 Integral_bias+=Bias;//求出偏差的积分
 Pwm=Position_KP*Bias/100+Position_KI*Integral_bias/100+Position_KD*(Bia
-s-Last_Bias)/100; //位置式 PID 控制器
+s-Last_Bias)/100; //位置式 PD 控制器
 Last_Bias=Bias; //保存上一次偏差
 return Pwm; //控制量输出
 }
@@ -210,6 +210,7 @@ $$ _5^4 T=\left[ \begin{matrix}
 \end{matrix} \right] $$
 
 得到旋转矩阵后，根据下面的公式得到末端执行器姿态：
+
 $$\left[\begin{matrix} 
 x\\
 y\\
