@@ -38,10 +38,7 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define DATA_UNCHANGED 0
-#define DATA_CHANGED 1
-#define MOTOR_A_SET 2
-#define MOTOR_B_SET 3
+#define MOTORE_USE_PD
 
 /* USER CODE END PD */
 
@@ -55,10 +52,11 @@
 /* USER CODE BEGIN PV */
 uint8_t TrackData = 0x00;
 uint8_t _preTrackData = 0x00;
-
 uint8_t _trackDataUtil = 0x00;
-uint8_t udata[8] = {0};
-uint8_t ubuff;
+
+volatile uint8_t rx_len;        //接收一帧数据的长度
+volatile uint8_t recv_end_flag; //一帧数据接收完成标志
+uint8_t rx_buffer[16];          //接收数据缓存数组
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -109,7 +107,7 @@ int main(void)
   MX_TIM4_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  HAL_UART_Receive_DMA(&huart1, &ubuff, 8);
+  // HAL_UART_Receive_DMA(&huart1, &ubuff, 8);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
@@ -123,34 +121,44 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    if (udata[0] < 101)
+    if (recv_end_flag == 1) //接收完成标志
     {
-      __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, udata[0]);
+      HAL_UART_Transmit_DMA(&huart1, rx_buffer, rx_len);
+      rx_len = 0;        //清除计数
+      recv_end_flag = 0; //清除接收结束标志位
+      for (uint8_t i = 0; i < rx_len; i++)
+      {
+        rx_buffer[i] = 0; //清接收缓存
+      }
+    }
+    HAL_UART_Receive_DMA(&huart1, rx_buffer, BUFFER_SIZE); //重新打开DMA接收
+    if (rx_buffer[0] < 101)
+    {
+      __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, rx_buffer[0]);
       __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_2, 0);
     }
     else
     {
       __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, 0);
-      __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_2, udata[0] - 100);
+      __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_2, rx_buffer[0] - 100);
     }
 
-    if (udata[1] < 101)
+    if (rx_buffer[1] < 101)
     {
-      __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_3, udata[1]);
+      __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_3, rx_buffer[1]);
       __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_4, 0);
     }
     else
     {
       __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_3, 0);
-      __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_4, udata[1] - 100);
+      __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_4, rx_buffer[1] - 100);
     }
-    if (_preTrackData != TrackData)
-    {
-      _preTrackData = TrackData;
-      HAL_UART_Transmit_DMA(&huart1, &TrackData, 1);
-    }
-
-    HAL_Delay(500);
+    __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, rx_buffer[2]); // PA6 S_PWM1
+    __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_2, rx_buffer[3]); // PA7 S_PWM2
+    __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_3, rx_buffer[4]); // PB0 S_PWM3
+    __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_4, rx_buffer[5]); // PB1 S_PWM4
+    __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_3, rx_buffer[6]); // PB10 S_PWM5
+    __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_4, rx_buffer[7]); // PB11 S_PWM6
   }
   /* USER CODE END 3 */
 }
@@ -201,31 +209,6 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
-// uint8_t _ulen = 0;
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
-{
-  if (huart == &huart1)
-  {
-    HAL_UART_Transmit_DMA(&huart1, &ubuff, 8);
-  }
-
-  // HAL_UART_Receive_IT(&huart1, &ubuff, 1);
-  /*
-  if (_ulen == 0 && ubuff == 0xff)
-    ;
-  if (_ulen < 8)
-  {
-    udata[_ulen] = ubuff;
-    _ulen++;
-  }
-  else
-  {
-    refreshMotor();
-    _ulen = 0;
-  }*/
-}
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {

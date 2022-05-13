@@ -1,7 +1,7 @@
 Dependencies for Project 'pre_c8_main', Target 'pre_c8_main': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
 F (startup_stm32f103xb.s)(0x627D3B22)(--cpu Cortex-M3 -g --apcs=interwork -I.\RTE\_pre_c8_main-IE:\Development\Shared\KeilPack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IE:\Development\Shared\KeilPack\Keil\STM32F1xx_DFP\2.4.0\Device\Include--pd "__UVISION_VERSION SETA 536" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f103xb.lst --xref -o pre_c8_main\startup_stm32f103xb.o --depend pre_c8_main\startup_stm32f103xb.d)
-F (../Core/Src/main.c)(0x627D3D2E)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_pre_c8_main-IE:\Development\Shared\KeilPack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IE:\Development\Shared\KeilPack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o pre_c8_main\main.o --omf_browse pre_c8_main\main.crf --depend pre_c8_main\main.d)
+F (../Core/Src/main.c)(0x627E4B0D)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_pre_c8_main-IE:\Development\Shared\KeilPack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IE:\Development\Shared\KeilPack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o pre_c8_main\main.o --omf_browse pre_c8_main\main.crf --depend pre_c8_main\main.d)
 I (../Core/Inc/main.h)(0x627D23CD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x624ED8DD)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x627D3B20)
@@ -37,7 +37,7 @@ I (../Core/Inc/adc.h)(0x627D23CC)
 I (../Core/Inc/dma.h)(0x627D3AB0)
 I (../Core/Inc/i2c.h)(0x627D23CC)
 I (../Core/Inc/tim.h)(0x627D3250)
-I (../Core/Inc/usart.h)(0x627D23CD)
+I (../Core/Inc/usart.h)(0x627E0246)
 I (../Core/Inc/gpio.h)(0x627D23CB)
 F (../Core/Src/gpio.c)(0x627D39A8)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_pre_c8_main-IE:\Development\Shared\KeilPack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IE:\Development\Shared\KeilPack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o pre_c8_main\gpio.o --omf_browse pre_c8_main\gpio.crf --depend pre_c8_main\gpio.d)
 I (../Core/Inc/gpio.h)(0x627D23CB)
@@ -204,8 +204,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x624ED8DD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x624ED8DD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x624ED8DD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x624ED8DD)
-F (../Core/Src/usart.c)(0x627D3B1F)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_pre_c8_main-IE:\Development\Shared\KeilPack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IE:\Development\Shared\KeilPack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o pre_c8_main\usart.o --omf_browse pre_c8_main\usart.crf --depend pre_c8_main\usart.d)
-I (../Core/Inc/usart.h)(0x627D23CD)
+F (../Core/Src/usart.c)(0x627E02A4)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_pre_c8_main-IE:\Development\Shared\KeilPack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IE:\Development\Shared\KeilPack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o pre_c8_main\usart.o --omf_browse pre_c8_main\usart.crf --depend pre_c8_main\usart.d)
+I (../Core/Inc/usart.h)(0x627E0246)
 I (../Core/Inc/main.h)(0x627D23CD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x624ED8DD)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x627D3B20)
@@ -237,7 +237,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x624ED8DD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x624ED8DD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x624ED8DD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x624ED8DD)
-F (../Core/Src/stm32f1xx_it.c)(0x627D3B1F)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_pre_c8_main-IE:\Development\Shared\KeilPack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IE:\Development\Shared\KeilPack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o pre_c8_main\stm32f1xx_it.o --omf_browse pre_c8_main\stm32f1xx_it.crf --depend pre_c8_main\stm32f1xx_it.d)
+F (../Core/Src/stm32f1xx_it.c)(0x627E476C)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_pre_c8_main-IE:\Development\Shared\KeilPack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IE:\Development\Shared\KeilPack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o pre_c8_main\stm32f1xx_it.o --omf_browse pre_c8_main\stm32f1xx_it.crf --depend pre_c8_main\stm32f1xx_it.d)
 I (../Core/Inc/main.h)(0x627D23CD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x624ED8DD)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x627D3B20)
@@ -270,6 +270,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x624ED8DD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x624ED8DD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x624ED8DD)
 I (../Core/Inc/stm32f1xx_it.h)(0x627D3B1F)
+I (../Core/Inc/usart.h)(0x627E0246)
 F (../Core/Src/stm32f1xx_hal_msp.c)(0x627D23CD)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_pre_c8_main-IE:\Development\Shared\KeilPack\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IE:\Development\Shared\KeilPack\Keil\STM32F1xx_DFP\2.4.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o pre_c8_main\stm32f1xx_hal_msp.o --omf_browse pre_c8_main\stm32f1xx_hal_msp.crf --depend pre_c8_main\stm32f1xx_hal_msp.d)
 I (../Core/Inc/main.h)(0x627D23CD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x624ED8DD)

@@ -22,4 +22,8 @@ void printf_bin(int num)
 int main(){
     int a = 0b00000001;
     printf_bin(~(a<<2));
+
+	unsigned char b = 50;
+	printf("%d", b);
+	printf("%d\n", b);
 }
