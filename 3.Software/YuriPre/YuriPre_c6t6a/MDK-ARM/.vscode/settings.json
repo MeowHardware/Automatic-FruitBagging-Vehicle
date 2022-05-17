@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "usart.h": "c",
+        "yuri_sersor.h": "c",
+        "yuri_sensor.h": "c",
+        "yuri.h": "c",
+        "stm32f1xx_hal.h": "c"
+    }
+}
