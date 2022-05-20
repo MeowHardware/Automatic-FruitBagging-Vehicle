@@ -1,0 +1,55 @@
+"E:\Development\Eclipse\CLion 2021.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=E:/Development/Eclipse/CLion 2021.3.4/bin/ninja/win/ninja.exe" -DCMAKE_C_COMPILER=E:/Development/Environment/MinGW/bin/gcc.exe -DCMAKE_CXX_COMPILER=E:/Development/Environment/MinGW/bin/g++.exe -G Ninja C:\Users\ijink\OneDrive\FruitAuto\3.Software\YuriPre\yuripre_c6_armcc
+-- The C compiler identification is ARMClang 6.16.1
+-- The CXX compiler identification is ARMClang 6.16.1
+-- The ASM compiler identification is ARMClang
+-- Found assembler: E:/Development/Eclipse/keilarm/ARM/ARMCLANG/bin/armclang.exe
+CMake Warning (dev) at E:/Development/Eclipse/CLion 2021.3.4/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ARMClang.cmake:91 (message):
+  Policy CMP0123 is not set: ARMClang cpu/arch compile and link flags must be
+  set explicitly.  Run "cmake --help-policy CMP0123" for policy details.  Use
+  the cmake_policy command to set the policy and suppress this warning.
+
+  For compatibility, CMake will automatically add cpu/arch flags based on the
+  CMAKE_SYSTEM_PROCESSOR and/or CMAKE_SYSTEM_ARCH variables.
+Call Stack (most recent call first):
+  E:/Development/Eclipse/CLion 2021.3.4/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ARMClang-C.cmake:3 (__compiler_armclang)
+  E:/Development/Eclipse/CLion 2021.3.4/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake:25 (include)
+  CMakeLists.txt:92 (project)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - failed
+-- Detecting C compile features
+-- Detecting C compile features - done
+CMake Warning (dev) at E:/Development/Eclipse/CLion 2021.3.4/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ARMClang.cmake:91 (message):
+  Policy CMP0123 is not set: ARMClang cpu/arch compile and link flags must be
+  set explicitly.  Run "cmake --help-policy CMP0123" for policy details.  Use
+  the cmake_policy command to set the policy and suppress this warning.
+
+  For compatibility, CMake will automatically add cpu/arch flags based on the
+  CMAKE_SYSTEM_PROCESSOR and/or CMAKE_SYSTEM_ARCH variables.
+Call Stack (most recent call first):
+  E:/Development/Eclipse/CLion 2021.3.4/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ARMClang-CXX.cmake:3 (__compiler_armclang)
+  E:/Development/Eclipse/CLion 2021.3.4/bin/cmake/win/share/cmake-3.21/Modules/CMakeCXXInformation.cmake:25 (include)
+  CMakeLists.txt:92 (project)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - failed
+-- Detecting CXX compile features
+-- Detecting CXX compile features - failed
+CMake Warning (dev) at E:/Development/Eclipse/CLion 2021.3.4/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ARMClang.cmake:91 (message):
+  Policy CMP0123 is not set: ARMClang cpu/arch compile and link flags must be
+  set explicitly.  Run "cmake --help-policy CMP0123" for policy details.  Use
+  the cmake_policy command to set the policy and suppress this warning.
+
+  For compatibility, CMake will automatically add cpu/arch flags based on the
+  CMAKE_SYSTEM_PROCESSOR and/or CMAKE_SYSTEM_ARCH variables.
+Call Stack (most recent call first):
+  E:/Development/Eclipse/CLion 2021.3.4/bin/cmake/win/share/cmake-3.21/Modules/Compiler/ARMClang-ASM.cmake:9 (__compiler_armclang)
+  E:/Development/Eclipse/CLion 2021.3.4/bin/cmake/win/share/cmake-3.21/Modules/CMakeASMInformation.cmake:22 (include)
+  CMakeLists.txt:92 (project)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/ijink/OneDrive/FruitAuto/3.Software/YuriPre/yuripre_c6_armcc/cmake-build-debug

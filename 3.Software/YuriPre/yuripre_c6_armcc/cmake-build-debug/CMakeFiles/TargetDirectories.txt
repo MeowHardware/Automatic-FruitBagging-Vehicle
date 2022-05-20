@@ -1,0 +1,3 @@
+C:/Users/ijink/OneDrive/FruitAuto/3.Software/YuriPre/yuripre_c6_armcc/cmake-build-debug/CMakeFiles/yuripre_c6_armcc.dir
+C:/Users/ijink/OneDrive/FruitAuto/3.Software/YuriPre/yuripre_c6_armcc/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/ijink/OneDrive/FruitAuto/3.Software/YuriPre/yuripre_c6_armcc/cmake-build-debug/CMakeFiles/rebuild_cache.dir

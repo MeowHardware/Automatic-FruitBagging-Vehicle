@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "yuripre_c6_armcc",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "yuripre_c6_armcc::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-yuripre_c6_armcc-Debug-97b0828083d425eba5f3.json",
+					"name" : "yuripre_c6_armcc",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/ijink/OneDrive/FruitAuto/3.Software/YuriPre/yuripre_c6_armcc/cmake-build-debug",
+		"source" : "C:/Users/ijink/OneDrive/FruitAuto/3.Software/YuriPre/yuripre_c6_armcc"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

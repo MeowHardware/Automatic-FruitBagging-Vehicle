@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/yuripre_c6_armcc.iml" filepath="$PROJECT_DIR$/.idea/yuripre_c6_armcc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/yuripre_c6_armcc2.iml" filepath="$PROJECT_DIR$/.idea/yuripre_c6_armcc2.iml" />
     </modules>
   </component>
 </project>

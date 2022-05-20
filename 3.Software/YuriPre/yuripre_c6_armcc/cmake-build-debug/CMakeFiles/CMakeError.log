@@ -1,0 +1,127 @@
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: E:/Development/Eclipse/keilarm/ARM/ARMCLANG/bin/armclang.exe 
+Build flags: 
+Id flags:  
+
+The output was:
+1
+armclang: fatal error: no target architecture given; use --target=arm-arm-none-eabi or --target=aarch64-arm-none-eabi
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: E:/Development/Eclipse/keilarm/ARM/ARMCLANG/bin/armclang.exe 
+Build flags: 
+Id flags: -c 
+
+The output was:
+1
+armclang: fatal error: no target architecture given; use --target=arm-arm-none-eabi or --target=aarch64-arm-none-eabi
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: E:/Development/Eclipse/keilarm/ARM/ARMCLANG/bin/armclang.exe 
+Build flags: 
+Id flags: --c++ 
+
+The output was:
+1
+armclang: error: unsupported option '--c++'
+armclang: fatal error: no target architecture given; use --target=arm-arm-none-eabi or --target=aarch64-arm-none-eabi
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: E:/Development/Eclipse/keilarm/ARM/ARMCLANG/bin/armclang.exe 
+Build flags: 
+Id flags: --ec++ 
+
+The output was:
+1
+armclang: error: unsupported option '--ec++'
+armclang: fatal error: no target architecture given; use --target=arm-arm-none-eabi or --target=aarch64-arm-none-eabi
+
+
+Checking whether the ASM compiler is GNU using "--version" did not match "(GNU assembler)|(GCC)|(Free Software Foundation)":
+Product: MDK Plus 5.36
+Component: ARM Compiler 6.16
+Tool: armclang [5dfeb700]
+
+Target: unspecified-arm-none-unspecified
+Checking whether the ASM compiler is Clang using "--version" did not match "(clang version)":
+Product: MDK Plus 5.36
+Component: ARM Compiler 6.16
+Tool: armclang [5dfeb700]
+
+Target: unspecified-arm-none-unspecified
+Checking whether the ASM compiler is AppleClang using "--version" did not match "(Apple LLVM version)":
+Product: MDK Plus 5.36
+Component: ARM Compiler 6.16
+Tool: armclang [5dfeb700]
+
+Target: unspecified-arm-none-unspecified
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: C:/Users/ijink/OneDrive/FruitAuto/3.Software/YuriPre/yuripre_c6_armcc/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):E:/Development/Eclipse/CLion 2021.3.4/bin/ninja/win/ninja.exe cmTC_45213 && [1/2] Building C object CMakeFiles\cmTC_45213.dir\CMakeCCompilerABI.o
+Product: MDK Plus 5.36
+Component: ARM Compiler 6.16
+Tool: armclang [5dfeb700]
+
+Target: arm-arm-none-eabi
+ (in-process)
+ "E:\\Development\\Eclipse\\keilarm\\ARM\\ARMCLANG\\bin\\armclang.exe" -cc1 -triple thumbv7m-arm-none-eabi -emit-obj --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model static -mframe-pointer=none -menable-no-infs -menable-no-nans -fmath-errno -fno-signed-zeros -fdenormal-fp-math=preserve-sign,preserve-sign -fdenormal-fp-math-f32=ieee,ieee -fno-rounding-math -ffinite-math-only -mconstructor-aliases -target-cpu cortex-m3 -target-feature +soft-float-abi -target-abi aapcs -mfloat-abi soft -fallow-half-arguments-and-returns -fno-split-dwarf-inlining -debug-info-kind=limited -dwarf-version=3 -debugger-tuning=gdb -fforce-dwarf-frame -v -ffunction-sections -fdata-sections -resource-dir "E:\\Development\\Eclipse\\keilarm\\ARM\\ARMCLANG\\lib\\clang\\13.0.0" -dependency-file "CMakeFiles\\cmTC_45213.dir\\CMakeCCompilerABI.o.d" -MT "CMakeFiles\\cmTC_45213.dir\\CMakeCCompilerABI.o" -sys-header-deps -internal-isystem "E:\\Development\\Eclipse\\keilarm\\ARM\\ARMCLANG\\bin\\..\\include" -nobuiltininc -Oz -w -std=c99 -fdebug-compilation-dir "C:\\Users\\ijink\\OneDrive\\FruitAuto\\3.Software\\YuriPre\\yuripre_c6_armcc\\cmake-build-debug\\CMakeFiles\\CMakeTmp" -ferror-limit 19 -fvisibility hidden -fshort-enums -fno-signed-char -fwchar-type=short -fno-signed-wchar -fgnuc-version=4.2.1 -fsuppress-licensing -vectorize-slp -aggressive-jump-threading -o "CMakeFiles\\cmTC_45213.dir\\CMakeCCompilerABI.o" -x c "E:\\Development\\Eclipse\\CLion 2021.3.4\\bin\\cmake\\win\\share\\cmake-3.21\\Modules\\CMakeCCompilerABI.c"
+ARM Compiler 6.16 -cc1 default target aarch64-arm-none-eabi
+#include "..." search starts here:
+#include <...> search starts here:
+ E:\Development\Eclipse\keilarm\ARM\ARMCLANG\bin\..\include
+End of search list.
+[2/2] Linking C executable cmTC_45213.elf
+FAILED: cmTC_45213.elf 
+cmd.exe /C "cd . && E:\Development\Eclipse\keilarm\ARM\ARMCLANG\bin\armlink.exe  --cpu=Cortex-M3 --cpu=Cortex-M3             --strict             --scatter C:/Users/ijink/OneDrive/FruitAuto/3.Software/YuriPre/yuripre_c6_armcc/MDK-ARM/yuripre_c6_armcc/yuripre_c6_armcc.sct             --info sizes --info totals --info unused --info veneers             --summary_stderr             --info summarysizes -v   CMakeFiles\cmTC_45213.dir\CMakeCCompilerABI.o -o cmTC_45213.elf  --list=cmTC_45213.elf.map && cd ."
+"C:/Users/ijink/OneDrive/FruitAuto/3.Software/YuriPre/yuripre_c6_armcc/MDK-ARM/yuripre_c6_armcc/yuripre_c6_armcc.sct", line 7 (column 9): Error: L6236E: No section matches selector - no section to be FIRST/LAST.
+Finished: 0 information, 0 warning and 1 error messages.
+ninja: build stopped: subcommand failed.
+
+
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: C:/Users/ijink/OneDrive/FruitAuto/3.Software/YuriPre/yuripre_c6_armcc/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):E:/Development/Eclipse/CLion 2021.3.4/bin/ninja/win/ninja.exe cmTC_330e3 && [1/2] Building CXX object CMakeFiles\cmTC_330e3.dir\CMakeCXXCompilerABI.o
+Product: MDK Plus 5.36
+Component: ARM Compiler 6.16
+Tool: armclang [5dfeb700]
+
+Target: arm-arm-none-eabi
+ (in-process)
+ "E:\\Development\\Eclipse\\keilarm\\ARM\\ARMCLANG\\bin\\armclang.exe" -cc1 -triple thumbv7m-arm-none-eabi -emit-obj -mrelax-all --mrelax-relocations -disable-free -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -Werror=return-type -mrelocation-model static -mframe-pointer=none -menable-no-infs -menable-no-nans -fmath-errno -fno-signed-zeros -fdenormal-fp-math=preserve-sign,preserve-sign -fdenormal-fp-math-f32=ieee,ieee -fno-rounding-math -ffinite-math-only -mconstructor-aliases -target-cpu cortex-m3 -target-feature +soft-float-abi -target-abi aapcs -mfloat-abi soft -fallow-half-arguments-and-returns -fno-split-dwarf-inlining -debugger-tuning=gdb -fforce-dwarf-frame -v -ffunction-sections -fdata-sections -resource-dir "E:\\Development\\Eclipse\\keilarm\\ARM\\ARMCLANG\\lib\\clang\\13.0.0" -dependency-file "CMakeFiles\\cmTC_330e3.dir\\CMakeCXXCompilerABI.o.d" -MT "CMakeFiles\\cmTC_330e3.dir\\CMakeCXXCompilerABI.o" -sys-header-deps -D__ARMCOMPILER_LIBCXX=1 -internal-isystem "E:\\Development\\Eclipse\\keilarm\\ARM\\ARMCLANG\\bin\\..\\include\\libcxx" -internal-isystem "E:\\Development\\Eclipse\\keilarm\\ARM\\ARMCLANG\\bin\\..\\include" -nobuiltininc -fdeprecated-macro -fdebug-compilation-dir "C:\\Users\\ijink\\OneDrive\\FruitAuto\\3.Software\\YuriPre\\yuripre_c6_armcc\\cmake-build-debug\\CMakeFiles\\CMakeTmp" -ferror-limit 19 -fvisibility hidden -fno-signed-char -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fsuppress-licensing -aggressive-jump-threading -o "CMakeFiles\\cmTC_330e3.dir\\CMakeCXXCompilerABI.o" -x c++ "E:\\Development\\Eclipse\\CLion 2021.3.4\\bin\\cmake\\win\\share\\cmake-3.21\\Modules\\CMakeCXXCompilerABI.cpp"
+ARM Compiler 6.16 -cc1 default target aarch64-arm-none-eabi
+#include "..." search starts here:
+#include <...> search starts here:
+ E:\Development\Eclipse\keilarm\ARM\ARMCLANG\bin\..\include\libcxx
+ E:\Development\Eclipse\keilarm\ARM\ARMCLANG\bin\..\include
+End of search list.
+[2/2] Linking CXX executable cmTC_330e3.elf
+FAILED: cmTC_330e3.elf 
+cmd.exe /C "cd . && E:\Development\Eclipse\keilarm\ARM\ARMCLANG\bin\armlink.exe  --cpu=Cortex-M3 --cpu=Cortex-M3             --strict             --scatter C:/Users/ijink/OneDrive/FruitAuto/3.Software/YuriPre/yuripre_c6_armcc/MDK-ARM/yuripre_c6_armcc/yuripre_c6_armcc.sct             --info sizes --info totals --info unused --info veneers             --summary_stderr             --info summarysizes -v   CMakeFiles\cmTC_330e3.dir\CMakeCXXCompilerABI.o -o cmTC_330e3.elf  --list=cmTC_330e3.elf.map && cd ."
+"C:/Users/ijink/OneDrive/FruitAuto/3.Software/YuriPre/yuripre_c6_armcc/MDK-ARM/yuripre_c6_armcc/yuripre_c6_armcc.sct", line 7 (column 9): Error: L6236E: No section matches selector - no section to be FIRST/LAST.
+Finished: 0 information, 0 warning and 1 error messages.
+ninja: build stopped: subcommand failed.
+
+
+
+
+Detecting CXX [] compiler features failed to compile with the following output:
+Change Dir: C:/Users/ijink/OneDrive/FruitAuto/3.Software/YuriPre/yuripre_c6_armcc/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):E:/Development/Eclipse/CLion 2021.3.4/bin/ninja/win/ninja.exe cmTC_0c047 && [1/2] Building CXX object CMakeFiles\cmTC_0c047.dir\feature_tests.o
+[2/2] Linking CXX executable cmTC_0c047.elf
+FAILED: cmTC_0c047.elf 
+cmd.exe /C "cd . && E:\Development\Eclipse\keilarm\ARM\ARMCLANG\bin\armlink.exe  --cpu=Cortex-M3 --cpu=Cortex-M3             --strict             --scatter C:/Users/ijink/OneDrive/FruitAuto/3.Software/YuriPre/yuripre_c6_armcc/MDK-ARM/yuripre_c6_armcc/yuripre_c6_armcc.sct             --info sizes --info totals --info unused --info veneers             --summary_stderr             --info summarysizes   CMakeFiles\cmTC_0c047.dir\feature_tests.o -o cmTC_0c047.elf  --list=cmTC_0c047.elf.map && cd ."
+"C:/Users/ijink/OneDrive/FruitAuto/3.Software/YuriPre/yuripre_c6_armcc/MDK-ARM/yuripre_c6_armcc/yuripre_c6_armcc.sct", line 7 (column 9): Error: L6236E: No section matches selector - no section to be FIRST/LAST.
+Finished: 0 information, 0 warning and 1 error messages.
+ninja: build stopped: subcommand failed.
+
+
+
+

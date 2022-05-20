@@ -216,7 +216,7 @@ x\\
 y\\
 z\\
 1
-\end{matrix}\right]
+\end{matrix}\right]image.png
 =
 _1^0T
 _2^1T
@@ -228,8 +228,8 @@ _5^4T
 0\\
 0\\
 1
-\end{matrix}\right]
-$$
+\end{matrix}\right]$$
+
 
 ### 5.1.3 机械臂的逆运动学解以及单片机计算速度优化算法
 1.2由DH模型得出的模型过于复杂，如果求解的画，对于单片机等计算速度较慢的设备可能会导致宕机崩溃等事故，故针对性模型精简时非常有必要的。
@@ -244,15 +244,22 @@ $$y=l_0sin\theta _1 + l_1sin(\theta_1+\theta_2) + l_2sin(\theta_1+\theta_2+\thet
 $$\alpha = \theta_1 + \theta_2 +\theta_3$$
 
 化简
+
 $$x=l_0cos\theta _1 + l_1cos(\theta_1+\theta_2) + l_2cos(\alpha)$$
 $$y=l_0sin\theta _1 + l_1sin(\theta_1+\theta_2) + l_2sin(\alpha)$$
+
 令
+
 $$m=l_2cos(\alpha)-x$$
 $$n=l_2sin(\alpha)-y$$
+
 得
+
 $$sin\theta _1 = (\frac{-b\pm \sqrt{b^2-4ac}}{2a})=$$
+
 其中
-$$k=\frac{^2_0-l^2_1-m^2-n^2}{2l_1}$$
+
+$$k=\frac{l^2_0-l^2_1-m^2-n^2}{2l_1}$$
 $$a=m^2+n^2$$
 $$b=-2nk$$
 $$c=k^2-m^2$$
