@@ -215,19 +215,18 @@ $$\left[\begin{matrix}
 x\\
 y\\
 z\\
-1
-\end{matrix}\right]image.png
-=
-_1^0T
-_2^1T
-_3^2T
-_4^3T
-_5^4T
-\left[\begin{matrix} 
+1\\
+\end{matrix}\right]
+=\\
+_1^0T\\
+_2^1T\\
+_3^2T\\
+_4^3T\\
+_5^4T\left[\begin{matrix} 
 0\\
 0\\
 0\\
-1
+1\\
 \end{matrix}\right]$$
 
 
