@@ -56,7 +56,7 @@ volatile uint8_t recv_end_flag; //帧数据接收完成标
 uint8_t rx_buffer[16];          //接收数据缓存数组
 
 uint8_t track_flag;
-uint16_t servo_data_init[6] = {1200, 900, 850, 1250, 0}; // servo init postion
+uint16_t servo_data_init[6] = {1200, 500, 850, 1250, 0}; // servo init postion
 uint8_t servo_data[6];
 /* USER CODE END PV */
 
@@ -107,11 +107,11 @@ int main(void)
   MX_TIM3_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  // HAL_TIM_Base_Start_IT(&htim1);
-  // HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-  // HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
-  // HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
-  // HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
+  HAL_TIM_Base_Start_IT(&htim1);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
 
   HAL_TIM_Base_Start_IT(&htim2);
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
@@ -146,14 +146,49 @@ int main(void)
       HAL_UART_Transmit_DMA(&huart1, servo_data, 5);
     }
     HAL_UART_Receive_DMA(&huart1, rx_buffer, BUFFER_SIZE); //重新打开DMA接收
-
-#ifdef USE_AUTO_TRACK
-
+#if 1
+    
+    while(1){
+      auto_track();
+      HAL_Delay(5);
+    }
+    
     // auto_track();
-    // HAL_Delay(2500);
-    //  for(uint8_t i = 0; i < 4; i++){
-    //    servo_set(i, servo_data[i]);
-    //  }
+    // HAL_Delay(0);
+
+    // servo_set_angle(1, 0);
+    // for(uint8_t x = 1; x < 4; x++){
+      //x 1.2 - 2  y -0.5 - 1.75
+    // float i = 1.5;
+    // uint8_t f = 0;
+    // while (1)
+    // {
+    //   if (f)
+    //   {
+    //     i += 0.005;
+    //     if (i > 2.5)
+    //     {
+    //       //servo_set_angle(3, 50);
+    //       //HAL_Delay(800);
+    //       f = 0;
+    //     }
+    //   }
+    //   else
+    //   {
+    //     i -= 0.005;
+    //     if (i < 1.2)
+    //     {
+    //       f = 1;
+    //     }
+    //   }
+
+    //   Kinematic_Analysis(i, 0.3, 0, 0);
+    //   HAL_Delay(10);
+    // }
+
+#else
+    servo_set_angle(1, 90);
+
     //  HAL_Delay(2500);
     // for (uint8_t j = 0; j < 100; j++)
     // {
@@ -162,7 +197,7 @@ int main(void)
     //     servo_set_angle(i, j);
     //   }
     //   HAL_Delay(30);
-      
+
     // }
     // for (uint8_t j = 0; j < 100; j++)
     // {
@@ -171,13 +206,9 @@ int main(void)
     //     servo_set_angle(i, 100-j);
     //   }
     //   HAL_Delay(30);
-      
+
     // }
 
-    for (uint8_t i = 0; i < 5; i++)
-       {
-         servo_set_angle(i, 0);
-       }
     //__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_4, 500);
     // auto_track();
     // motor_run(50);

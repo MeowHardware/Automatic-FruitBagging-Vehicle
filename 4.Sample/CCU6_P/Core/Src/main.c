@@ -101,8 +101,6 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
-  PCA9685_Reset();
-  SetPWMFreq(60);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -110,17 +108,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    SetPWM(0, 0, 2000);
-    SetPWM(1, 0, 0);
-    SetPWM(2, 0, 4096);
-    SetPWM(3, 0, 2000);
-    SetPWM(4, 0, 0);
-    SetPWM(5, 0, 4096);
-		SetPWM(5, 0, 4096);
-		SetPWM(8, 0, 1236);
-    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-    HAL_Delay(500);
+    
     /* USER CODE BEGIN 3 */
+		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+		HAL_Delay(200);
   }
   /* USER CODE END 3 */
 }

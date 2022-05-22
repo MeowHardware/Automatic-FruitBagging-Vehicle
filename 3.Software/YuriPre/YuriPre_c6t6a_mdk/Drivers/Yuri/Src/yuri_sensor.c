@@ -1,5 +1,6 @@
 #include "yuri_sensor.h"
 #include "tim.h"
+#include "math.h"
 
 void yuri_sensor_read()
 {
@@ -235,7 +236,76 @@ void servo_set(uint8_t bit, uint16_t time)
     }
 }
 
-void servo_set_angle(uint8_t bit, uint8_t angle){
-   servo_set(bit, servo_data_init[bit] + 11.11 * angle);
+void servo_set_angle(uint8_t bit, float angle)
+{
+    switch (bit)
+    {
+    case 0:
+        servo_set(bit, 500 + 11.11 * angle);
+        break;
+    case 1:
+        servo_set(bit, 1900 - 11.11 * angle);
+        break;
+    case 2:
+        servo_set(bit, 1800 - 11.11 * (-angle));
+        break;
+    case 3:
+        servo_set(bit, 1150 + 11.11 * (-angle));
+        break;
+    case 4:
+        //__HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_3, time);
+        break;
+    default:
+        break;
+    }
 }
+
+float l0 = 1.03;
+float l1 = 1.25;
+float l2 = 0;
+#define PI 3.14
+void Kinematic_Analysis(float x, float y, float Beta, float Alpha)
+{
+    if( x * x + y * y > 5.2){
+        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_RESET);
+        return;
+    }
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
+    float m, n, k, a, b, c, theta1, theta2, theta3, s1ps2;
+    m = l2 * cos(Alpha * PI / 180) - x;
+    n = l2 * sin(Alpha * PI / 180) - y;
+    k = (l1 * l1 - l0 * l0 - m * m - n * n) / 2 / l0;
+    a = m * m + n * n;
+    b = -2 * n * k;
+    c = k * k - m * m;
+    theta1 = (-b + sqrt(b * b - 4 * a * c)) / 2 / a;
+    theta1 = asin(theta1) * 180 / PI;
     
+    if (theta1 < 0)
+        theta1 = 0;
+
+    k = (l0 * l0 - l1 * l1 - m * m - n * n) / 2 / l1;
+    a = m * m + n * n;
+    b = -2 * n * k;
+    c = k * k - m * m;
+    s1ps2 = (-b - sqrt(b * b - 4 * a * c)) / 2 / a;
+    s1ps2 = asin(s1ps2) * 180 / PI;
+
+    if (s1ps2 > 90)
+        theta2 = 90;
+    if (s1ps2 < -90)
+        theta2 = -90;
+
+    theta2 = s1ps2 - theta1;
+
+    if (theta2 > 0)
+        theta2 = 0;
+    if (theta2 < -110)
+        theta2 = -110;
+
+    theta3 = Alpha - theta1 - theta2;
+
+    servo_set_angle(1, theta1);
+    servo_set_angle(2, theta2);
+    servo_set_angle(3, theta3);
+}
