@@ -1,7 +1,8 @@
 # FruitAuto
 
 #### 介绍
-水果操作
+水果套袋
+
 这是水果操作的代码库
 [测试模型1说明](https://github.com/KJook/FruitAuto/blob/main/5.Docs/README.md)
 ### 更详细的介绍
