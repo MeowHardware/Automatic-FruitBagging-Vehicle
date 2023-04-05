@@ -3,43 +3,71 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ¦ÌVision V5.36.0.0
-Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: d df, f, LIC=UJWP0-BK2YB-HL5CL-0XW6U-JFC8Q-JSI00
+IDE-Version: ¦ÌVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: asd asdd, a, LIC=47GU5-GTSFQ-452T5-GGBHM-88HH1-82FPS
  
 Tool Versions:
-Toolchain:       MDK-ARM Plus  Version: 5.36.0.0
-Toolchain Path:  E:\Development\Eclipse\KeilArm\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 7 (build 960)
-Assembler:       Armasm.exe V5.06 update 7 (build 960)
-Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
-Library Manager: ArmAr.exe V5.06 update 7 (build 960)
-Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
-CPU DLL:         SARMCM3.DLL V5.36.0.0
-Dialog DLL:      DCM.DLL V1.17.3.0
-Target DLL:      CMSIS_AGDI.dll V1.33.0.0
-Dialog DLL:      TCM.DLL V1.53.0.0
+Toolchain:       MDK-ARM Plus  Version: 5.38.0.0
+Toolchain Path:  D:\Custom Program Files\Code IDE Program Files\Keil\mdkarm\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.19
+Assembler:       Armasm.exe V6.19
+Linker/Locator:  ArmLink.exe V6.19
+Library Manager: ArmAr.exe V6.19
+Hex Converter:   FromElf.exe V6.19
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      CMSIS_AGDI.dll V1.33.15.0
+Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
-c:\Users\ijink\OneDrive\FruitAuto\3.Software\YuriPre\YuriPre_c6t6a_mdk\MDK-ARM\YuriPre_c6t6a.uvprojx
-Project File Date:  05/20/2022
+D:\Project\FruitAuto\FruitAuto\3.Software\YuriPre\YuriPre_c6t6a_mdk\MDK-ARM\YuriPre_c6t6a.uvprojx
+Project File Date:  04/05/2023
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'E:\Development\Eclipse\KeilArm\ARM\ARMCC\Bin'
-Build target 'YuriPre_c6t6a'
+*** Using Compiler 'V6.19', folder: 'D:\Custom Program Files\Code IDE Program Files\Keil\mdkarm\ARM\ARMCLANG\Bin'
+Rebuild target 'YuriPre_c6t6a'
+compiling gpio.c...
+assembling startup_stm32f103x6.s...
+compiling usart.c...
+compiling stm32f1xx_hal.c...
+compiling stm32f1xx_it.c...
+compiling stm32f1xx_hal_msp.c...
+compiling i2c.c...
+compiling dma.c...
+compiling stm32f1xx_hal_gpio_ex.c...
+compiling adc.c...
+compiling stm32f1xx_hal_rcc.c...
 compiling main.c...
+compiling stm32f1xx_hal_rcc_ex.c...
+compiling tim.c...
+compiling stm32f1xx_hal_adc_ex.c...
+compiling stm32f1xx_hal_gpio.c...
+compiling stm32f1xx_hal_adc.c...
+compiling stm32f1xx_hal_cortex.c...
+compiling stm32f1xx_hal_dma.c...
+compiling stm32f1xx_hal_pwr.c...
+compiling stm32f1xx_hal_exti.c...
+compiling stm32f1xx_hal_flash_ex.c...
+compiling stm32f1xx_hal_flash.c...
+compiling system_stm32f1xx.c...
+compiling yuri_sensor.c...
+compiling stm32f1xx_hal_tim_ex.c...
+compiling stm32f1xx_hal_uart.c...
+compiling stm32f1xx_hal_tim.c...
+compiling stm32f1xx_hal_i2c.c...
 linking...
-Program Size: Code=11092 RO-data=292 RW-data=36 ZI-data=2204  
+Program Size: Code=12188 RO-data=312 RW-data=12 ZI-data=2236  
 FromELF: creating hex file...
 "YuriPre_c6t6a\YuriPre_c6t6a.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.5.8.0.pack
-                ARM.CMSIS.5.8.0
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
                 CMSIS (Common Microcontroller Software Interface Standard)
-   * Component: CORE Version: 5.5.0
+   * Component: CORE Version: 5.6.0
 
 Package Vendor: Keil
                 http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.0.pack
@@ -47,15 +75,15 @@ Package Vendor: Keil
                 STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
-  .\RTE\_YuriPre_c6t6a
-  E:\Development\Shared\KeilPack\ARM\CMSIS\5.8.0\CMSIS\Core\Include
-  E:\Development\Shared\KeilPack\Keil\STM32F1xx_DFP\2.4.0\Device\Include
+  ./RTE/_YuriPre_c6t6a
+  D:/Custom Program Files/Code IDE Program Files/Keil/pack/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  D:/Custom Program Files/Code IDE Program Files/Keil/pack/Keil/STM32F1xx_DFP/2.4.0/Device/Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:5.5.0
-      Include file:  CMSIS\Core\Include\tz_context.h
-Build Time Elapsed:  00:00:01
+   * Component: ARM::CMSIS:CORE:5.6.0
+      Include file:  CMSIS/Core/Include/tz_context.h
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
