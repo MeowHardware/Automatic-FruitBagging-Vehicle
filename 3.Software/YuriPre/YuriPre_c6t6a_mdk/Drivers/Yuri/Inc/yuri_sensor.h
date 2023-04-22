@@ -29,12 +29,14 @@ void motor_turn_right(uint8_t speed);
 void motor_back(uint8_t speed);
 void motor_stop(void);
 
+void test_motor(void);
+
 uint8_t track_check(uint8_t bit);
 void track_check_while(uint8_t bit);
 uint8_t is_out_track(void);
     
 void yuri_sensor_read(void);
-void auto_track(void);
+uint8_t auto_track(void);
 void servo_set(uint8_t bit, uint16_t time);
 void servo_set_angle(uint8_t bit, float angle);
 void Kinematic_Analysis(float x, float y, float Beta, float Alpha);

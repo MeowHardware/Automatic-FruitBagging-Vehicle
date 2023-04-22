@@ -9,8 +9,8 @@
 
 #define TRACK_TICK 15
 
-#define TURN_SPEED 70
-#define RUN_SPEED 40
+#define TURN_SPEED 80
+#define RUN_SPEED 50
 
 #define MIDDLE 2
 #define LEFTA 3
