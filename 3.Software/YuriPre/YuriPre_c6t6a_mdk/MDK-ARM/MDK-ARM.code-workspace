@@ -6,7 +6,11 @@
     ],
     "settings": {
         "files.associations": {
-            "yuri.h": "c"
+            "yuri.h": "c",
+            "math.h": "c",
+            "yuri_sensor.h": "c",
+            "tim.h": "c",
+            "stm32f1xx_hal.h": "c"
         }
     },
     "extensions": {}

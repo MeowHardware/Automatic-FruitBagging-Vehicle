@@ -166,7 +166,8 @@ uint8_t auto_track(void)
     if (track_check(MIDDLE))
     // 中间为1，没有偏离
     {
-        if(track_check(LEFTB) && track_check(RIGHTB)){
+        if (track_check(LEFTB) && track_check(RIGHTB))
+        {
             // 到达目的地
             motor_stop();
             return 1;
@@ -179,7 +180,6 @@ uint8_t auto_track(void)
     // 中间为0，偏离轨道
     {
         HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
-
 
         if (track_check(LEFTB))
         {
@@ -213,7 +213,6 @@ uint8_t auto_track(void)
             // track_check_while(MIDDLE);
             return 0;
         }
-
 
         motor_back(RUN_SPEED);
         return 0;
@@ -256,20 +255,18 @@ void servo_set(uint8_t bit, uint16_t time)
     }
 }
 
-
-
 void servo_set_angle(uint8_t bit, float angle)
 {
     switch (bit)
     {
     case 0:
-        servo_set(bit, 500 + 11.11 * angle);
+        servo_set(bit, angle);
         break;
     case 1:
         servo_set(bit, 1900 - 11.11 * angle);
         break;
     case 2:
-        servo_set(bit, 1800 - 11.11 * (-angle));
+        servo_set(bit, 1800 - 11.11 * (angle));
         break;
     case 3:
         servo_set(bit, 1800 + 11.11 * (-angle));
@@ -282,11 +279,6 @@ void servo_set_angle(uint8_t bit, float angle)
     }
 }
 
-
-
-
-
-
 float l0 = 1.03;
 float l1 = 1.25;
 float l2 = 0;
@@ -295,10 +287,10 @@ void Kinematic_Analysis(float x, float y, float Beta, float Alpha)
 {
     if (x * x + y * y > 5.2)
     {
-        HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_RESET);
+        //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_RESET);
         return;
     }
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
+    //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_SET);
     float m, n, k, a, b, c, theta1, theta2, theta3, s1ps2;
     m = l2 * cos(Alpha * PI / 180) - x;
     n = l2 * sin(Alpha * PI / 180) - y;
@@ -331,9 +323,9 @@ void Kinematic_Analysis(float x, float y, float Beta, float Alpha)
     if (theta2 < -110)
         theta2 = -110;
 
-    theta3 = Alpha - theta1 - theta2;
+    //theta3 = Alpha - theta1 - theta2;
 
     servo_set_angle(1, theta1);
     servo_set_angle(2, theta2);
-    servo_set_angle(3, theta3);
+    //servo_set_angle(0, theta3);
 }

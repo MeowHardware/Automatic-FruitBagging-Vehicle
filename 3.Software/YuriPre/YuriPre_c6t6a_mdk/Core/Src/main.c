@@ -48,13 +48,12 @@
 
 /* USER CODE BEGIN PV */
 uint8_t track[5];
-
+float y = 1;
 // uint8_t track_last = 0x00;
 
 volatile uint8_t rx_len;
 volatile uint8_t recv_end_flag; // 帧数据接收完成标
 uint8_t rx_buffer[16];          // 接收数据缓存数组
-
 
 uint8_t track_flag;
 uint8_t is_track = 0;
@@ -143,136 +142,79 @@ int main(void)
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
   /* USER CODE END 2 */
-    HAL_Delay(500);
-
-    // 舵机位置初始化
-    servo_set_angle(0, 60);
-    servo_set_angle(1, 90);
-    servo_set_angle(2, -90);
-
-    HAL_Delay(1000);
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  HAL_Delay(500);
+
+  // 舵机位置初始化
+  servo_set_angle(1, 30);
+  servo_set_angle(2, -70);
+
+  // servo_set_angle(2, -90);
+  // Kinematic_Analysis(1.5, 0.2, 0, 60);
+
+  for (int i = 0; i < 7; i++)
+  {
+    HAL_Delay(1000);
+  }
   while (1)
   {
-    //test_motor();
-    is_track = auto_track();
-	
-    if (is_track == 1)
+    // is_track = auto_track();
+
+    // if (is_track == 1)
+    //{
+    //  HAL_UART_Transmit_DMA(&huart1, &is_track, 1);
+    get_usart_data();
+    if (x_offest == 0x31)
     {
-      HAL_UART_Transmit_DMA(&huart1, &is_track, 1);
-      while (1)
-      {
-        get_usart_data();
-        if (x_offest == 0x32)
-        {
-          motor_run(RUN_SPEED);
-        }
-        else if (x_offest == 0x31)
-        {
-          motor_back(RUN_SPEED);
-        }
-        else
-        {
-          motor_stop();
-        }
-      }
+      auto_track();
+      // motor_run(FIND_APPLE_SPEED);
     }
+    else if (x_offest == 0x32)
+    {
+      auto_track();
+      // motor_run(FIND_APPLE_SPEED);
+    }
+    else if (x_offest == 0x33)
+    {
+      motor_back(FIND_APPLE_SPEED);
+    }
+    else if (x_offest == 0x34)
+    {
+      motor_back(FIND_APPLE_SPEED + FIND_APPLE_SPEED_OFFSET);
+    }
+    else if (x_offest == 0x35)
+    {
+      motor_stop();
+      break;
+    }
+    else
+    {
+      auto_track();
+    }
+  }
+  HAL_Delay(500);
+	motor_back(FIND_APPLE_SPEED);
+  HAL_Delay(500);
 
-#if 0
-    //while(1){
-      servo_set_angle(1, 0);
-      servo_set_angle(2, 0);
-      servo_set_angle(3, 0);
-      //test_motor();
-
-      // if(auto_track()){
-      //   while (1)
-      //   {
-      //     /* code */
-      //   }
-        
-      //}
-      //HAL_Delay(1);
-    //}
-    
-    // auto_track();
-    // HAL_Delay(0);
-
-    // servo_set_angle(1, 0);
-    // for(uint8_t x = 1; x < 4; x++){
-      //x 1.2 - 2  y -0.5 - 1.75
-    // float i = 1.5;
-    // uint8_t f = 0;
-    // while (1)
-    // {
-    //   if (f)
-    //   {
-    //     i += 0.005;
-    //     if (i > 2.5)
-    //     {
-    //       //servo_set_angle(3, 50);
-    //       //HAL_Delay(800);
-    //       f = 0;
-    //     }
-    //   }
-    //   else
-    //   {
-    //     i -= 0.005;
-    //     if (i < 1.2)
-    //     {
-    //       f = 1;
-    //     }
-    //   }
-
-    //   Kinematic_Analysis(i, 0.3, 0, 0);
-    //   HAL_Delay(10);
-    // }
-
-#else
-
-    // servo_set_angle(0, 0);
-    // servo_set_angle(1, 0);
-    // servo_set_angle(2, 0);
-
-    // while (1)
-    // {
-    // }
-
-    //  HAL_Delay(2500);
-    // for (uint8_t j = 0; j < 100; j++)
-    // {
-    //   for (uint8_t i = 2; i < 4; i++)
-    //   {
-    //     servo_set_angle(i, j);
-    //   }
-    //   HAL_Delay(30);
-
-    // }
-    // for (uint8_t j = 0; j < 100; j++)
-    // {
-    //   for (uint8_t i = 2; i < 4; i++)
-    //   {
-    //     servo_set_angle(i, 100-j);
-    //   }
-    //   HAL_Delay(30);
-
-    // }
-
-    //__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_4, 500);
-    // auto_track();
-    // motor_run(50);
-    // right_motor_run(100);
-
-#endif
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
+  while (x_offest != 0x30)
+  {
+    get_usart_data();
   }
 
-  // servo_set_angle(1, 10);
-  /* USER CODE END 3 */
+  motor_stop();
+  HAL_Delay(1000);
+
+  for (float i = 0; i <= 30; i += 0.06)
+  {
+    servo_set_angle(1, 30 + i);
+    servo_set_angle(2, -70 + i / 3);
+    HAL_Delay(5);
+  }
+  while (1)
+  {
+  }
 }
 
 /**

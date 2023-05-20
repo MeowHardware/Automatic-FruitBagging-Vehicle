@@ -9,8 +9,11 @@
 
 #define TRACK_TICK 15
 
-#define TURN_SPEED 80
-#define RUN_SPEED 50
+#define TURN_SPEED 60
+#define RUN_SPEED 35
+
+#define FIND_APPLE_SPEED_OFFSET 8
+#define FIND_APPLE_SPEED 35
 
 #define MIDDLE 2
 #define LEFTA 3
@@ -20,7 +23,6 @@
 #define TRUN_TIMEOUT 500
 
 #define USE_AUTO_TRACK
-
 
 #ifdef __cplusplus
 }

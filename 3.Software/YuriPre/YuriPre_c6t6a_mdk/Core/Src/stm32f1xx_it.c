@@ -310,18 +310,18 @@ void USART1_IRQHandler(void)
   /* USER CODE BEGIN USART1_IRQn 0 */
   uint32_t tmp_flag = 0;
   uint32_t temp;
-  tmp_flag = __HAL_UART_GET_FLAG(&huart1, UART_FLAG_IDLE); //获取IDLE标志�????
-  if (tmp_flag != RESET)                                   // idle标志被置�????
+  tmp_flag = __HAL_UART_GET_FLAG(&huart1, UART_FLAG_IDLE); //获取IDLE标志�????
+  if (tmp_flag != RESET)                                   // idle标志被置�????
   {
-    __HAL_UART_CLEAR_IDLEFLAG(&huart1); //清除标志�????
+    __HAL_UART_CLEAR_IDLEFLAG(&huart1); //清除标志�????
     // temp = huart1.Instance->SR;  //清除状�?�寄存器SR,读取SR寄存器可以实现清除SR寄存器的功能
-    // temp = huart1.Instance->DR; //读取数据寄存器中的数�????
+    // temp = huart1.Instance->DR; //读取数据寄存器中的数�????
     //这两句和上面那句等效
     HAL_UART_DMAStop(&huart1);
-    temp = __HAL_DMA_GET_COUNTER(&hdma_usart1_rx); // 获取DMA中未传输的数据个�????
-    // temp  = hdma_usart1_rx.Instance->NDTR;//读取NDTR寄存�???? 获取DMA中未传输的数据个数，
-    //这句和上面那句等�????
-    rx_len = BUFFER_SIZE - temp; //总计数减去未传输的数据个数，得到已经接收的数据个�????
+    temp = __HAL_DMA_GET_COUNTER(&hdma_usart1_rx); // 获取DMA中未传输的数据个�????
+    // temp  = hdma_usart1_rx.Instance->NDTR;//读取NDTR寄存�???? 获取DMA中未传输的数据个数，
+    //这句和上面那句等�????
+    rx_len = BUFFER_SIZE - temp; //总计数减去未传输的数据个数，得到已经接收的数据个�????
     recv_end_flag = 1;           // 接受完成标志位置1
   }
   /* USER CODE END USART1_IRQn 0 */
